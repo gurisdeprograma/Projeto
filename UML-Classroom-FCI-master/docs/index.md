@@ -78,7 +78,7 @@ RNF06 – Compatibilidade O sistema deve funcionar em diferentes navegadores mod
 
 # Diagrama de Atividades
 
-![Diagrama Atividades](diagramapj.png)
+<img src="diagrama.png" alt="diagrama">
 
 
 # Diagrama de Casos de Uso
