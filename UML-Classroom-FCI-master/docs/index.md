@@ -3,12 +3,8 @@
 
 
 <font size="+12"><center>
-*&lt;Nome do Projeto&gt;*
+<h3>Sistema de Gestão para a Farmácia Vida Saudável</h3>
 </center></font>
-
->*Observação 1: A estrutura inicial deste documento é só um exemplo. O seu grupo deverá alterar esta estrutura de acordo com o que está sendo solicitado na disciplina.*
-
->*Observação 2: O índice abaixo não precisa ser editado se você utilizar o Visual Studio Code com a extensão **Markdown All in One**. Essa extensão atualiza o índice automaticamente quando o arquivo é salvo.*
 
 **Conteúdo**
 
@@ -27,22 +23,26 @@
 
 # Autores
 
-* Eduardo Barbizan
-* Gabriel henrique 
-* André Drummond
-* Isaac Koga
+* <b>Andre Drumond - 10724048</b>
+* <b>Eduardo Rodrigues - 10727042</b>
+* <b>Gabriel Henrique - 10439251</b>
+* <b>Isaac Koga - 10723323</b>
 
 
 # Descrição do Projeto
 
-*&lt;Introdução do projeto&gt;*
+O Sr. Boticário contratou a nossa empresa de desenvolvimento - MACK
+Solutions SW - para criar um sistema que otimize a operação da farmácia.
+Ele espera um sistema simples e eficiente que facilite as operações
+diárias dos funcionários, garantindo maior precisão e rapidez no
+atendimento.
 
 # Análise de Requisitos Funcionais e Não-Funcionais
 *&lt;Descrição dos requisitos&gt;*
 
 # Diagrama de Atividades
 
-*&lt;Diagrama para visualizer as pessoas das áreas de negócios e de desenvolvimento de uma organização para entender o processo e comportamento.&gt;*
+<img src="diagrama.png" alt="diagrama">
 
 # Diagrama de Casos de Uso
 
