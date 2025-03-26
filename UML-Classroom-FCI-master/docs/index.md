@@ -87,7 +87,7 @@ O sistema permitirá o registro de medicamentos, clientes e vendas, atualizando 
 
 # Diagrama de Casos de Uso
 
-
+<img src="uc_diagrama.png" alt="dg_usercase">
 
 
 # Descrição dos Casos de Uso
