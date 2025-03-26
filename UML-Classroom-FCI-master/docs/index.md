@@ -83,12 +83,12 @@ O sistema permitirá o registro de medicamentos, clientes e vendas, atualizando 
 
 # Diagrama de Atividades
 
-<img src="diagrama.png" alt="diagrama">
+
 
 
 # Diagrama de Casos de Uso
 
-<img src="uc.png" alt="usercase">
+
 
 
 # Descrição dos Casos de Uso
