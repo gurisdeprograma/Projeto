@@ -83,7 +83,7 @@ O sistema permitirá o registro de medicamentos, clientes e vendas, atualizando 
 
 # Diagrama de Atividades
 
-<img src="diagrama_atividade.png" alt="dg_atvd"
+<img src="diagrama_atividade.png" alt="dg_atvd">
 
 # Diagrama de Casos de Uso
 
