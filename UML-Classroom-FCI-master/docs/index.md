@@ -88,41 +88,7 @@ O sistema permitirá o registro de medicamentos, clientes e vendas, atualizando 
 
 # Diagrama de Casos de Uso
 
-```plantuml
-@startuml
-
-left to right direction
-actor "Bibliotecário" as A1
-actor "Cliente" as A2
-
-rectangle "Sistema Bibliotecário"{
-usecase "Registro de Empréstimo" as uc1
-usecase "Gerenciamento de multa" as uc2
-usecase "Logar no sistema" as uc3
-usecase "Cadastro" as uc4
-usecase "Devolução de Livros" as uc5
-usecase "Consulta ao catálogo" as uc6
-usecase "Aplicar multa" as uc7
-}
-
-
-A1 <-- A2
-A1 -- uc1
-A1 -- uc2
-A2 -- uc4
-A2 -- uc5
-A2 -- uc6
-
-uc1 ..> uc3 :<<include>>
-uc2 ..> uc3 :<<include>>
-uc5 ..> uc3 :<<include>>
-uc4 ..> uc3 :<<include>>
-uc5 <.. uc7 :<<extends>>
-uc2 ..> uc7 :<<include>>
-uc6 ..> uc3 :<<include>>
-
-@enduml
-```
+<img src="uc.png" alt="usercase">
 
 
 # Descrição dos Casos de Uso
