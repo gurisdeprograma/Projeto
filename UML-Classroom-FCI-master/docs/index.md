@@ -91,6 +91,52 @@ O sistema permitirá o registro de medicamentos, clientes e vendas, atualizando 
 <img src="diagram_uc.png" alt="caso_uso">
 
 # Descrição dos Casos de Uso
+
+| **Código / Nome do Caso de Uso** | **Ator Principal** | **Resumo** |
+|----------------------------------|--------------------|------------|
+| **UC1 - Cadastrar Cliente**      | Atendente          | Permite que o atendente registre novos clientes no sistema. |
+| **UC2 - Cadastrar Produto**      | Administrador      | Permite que o administrador registre novos produtos (medicamentos) no sistema. |
+| **UC3 - Realizar Venda**         | Atendente          | Permite que o atendente registre uma venda de produtos para um cliente. |
+| **UC4 - Calcular Descontos**     | Atendente          | Permite que o sistema calcule e aplique descontos durante a venda. |
+| **UC5 - Registrar Pagamento**    | Atendente          | Permite que o atendente registre o pagamento da venda. |
+| **UC6 - Atualizar Estoque**      | Atendente, Administrador | Permite que o sistema atualize o estoque com base nas vendas realizadas. |
+| **UC7 - Controle de Produtos Próximos da Validade** | Administrador | Permite que o sistema verifique a validade dos produtos e gere alertas. |
+| **UC8 - Histórico de Compras**   | Atendente          | Permite que o sistema gere o histórico de compras dos clientes. |
+| **UC9 - Gerar Relatórios de Vendas** | Administrador   | Permite que o sistema gere relatórios de vendas. |
+| **UC10 - Controle de Acesso por Perfil de Usuário** | Administrador | Permite que o administrador gerencie o acesso dos usuários ao sistema. |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 1. Cadastrar Cliente (UC1)
 
 **Descrição:** Permite que o atendente registre novos clientes no sistema.
