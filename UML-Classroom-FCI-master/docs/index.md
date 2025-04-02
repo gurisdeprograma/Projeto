@@ -91,103 +91,243 @@ O sistema permitirá o registro de medicamentos, clientes e vendas, atualizando 
 <img src="diagram_uc.png" alt="caso_uso">
 
 # Descrição dos Casos de Uso
-
+## UC1 - Cadastrar Cliente
 | **Código do Caso de Uso**      | UC1 - Cadastrar Cliente |
 |---------------------------------|-------------------------|
-| **Ator Principal**              | Atendente               |
-| **Resumo**                      | Permite que o atendente registre novos clientes no sistema. |
-| **Pré-condições**               | O atendente deve estar autenticado no sistema. |
-| **Pós-condições**               | O cliente é cadastrado e os dados são armazenados no banco de dados. |
+| *Ator Principal*             | Atendente               |
+| *Resumo*                     | Permite que o atendente registre novos clientes no sistema. |
+| *Pré-condições*              | O atendente deve estar autenticado no sistema. |
+| *Pós-condições*              | O cliente é cadastrado e os dados são armazenados no banco de dados. |
+
+## Fluxo Principal
+| **Atendente** | **Sistema** |
+|---------------|-------------|
+| 1. O atendente insere os dados do cliente (nome completo, CPF, CEP, telefone). || 
+|| 2. Valida os dados inseridos. |
+|| 3. Armazena os dados no banco de dados. |
+|| 4. Confirma o cadastro e exibe uma mensagem de sucesso. |
+
+## Fluxo Alternativo
+| **Atendente** | **Sistema** |
+|---------------|-------------|
+| 1a. O atendente insere um CPF já cadastrado. ||
+|| 2a. O sistema exibe uma mensagem de erro e solicita um novo CPF. |
+| 1b. O atendente não preenche um campo obrigatório. | |
+||2b. O sistema exibe um alerta informando que o campo é obrigatório. |
 
 ---
 
-| **Código do Caso de Uso**      | UC2 - Cadastrar Produto |
-|---------------------------------|-------------------------|
-| **Ator Principal**              | Administrador           |
-| **Resumo**                      | Permite que o administrador registre novos produtos (medicamentos) no sistema. |
-| **Pré-condições**               | O administrador deve estar autenticado no sistema. |
-| **Pós-condições**               | O produto é cadastrado e os dados são armazenados no banco de dados. |
+## UC2 - Cadastrar Produto
+| **Código do Caso de Uso**     | UC2 - Cadastrar Produto |
+|-------------------------------|-------------------------|
+| *Ator Principal*              | Administrador           |
+| *Resumo*                      | Permite que o administrador registre novos produtos (medicamentos) no sistema. |
+| *Pré-condições*               | O administrador deve estar autenticado no sistema. |
+| *Pós-condições*               | O produto é cadastrado e os dados são armazenados no banco de dados. |
+
+## Fluxo Principal
+| **Atendente** | **Sistema** |
+|---------------|-------------|
+| 1. O administrador insere os dados do produto (nome, lote, data de validade, quantidade em estoque, fabricante, preço de venda).||
+|| 2. Valida os dados inseridos. |
+|| 3. Armazena os dados no banco de dados. |
+|| 4. Confirma o cadastro e exibe uma mensagem de sucesso. |
+
+## Fluxo Alternativo
+| **Administrador** | **Sistema** |
+|---------------|-------------|
+| 1a. O administrador insere um lote já cadastrado. | |
+||2a. O sistema exibe uma mensagem de erro e solicita um novo lote. |
 
 ---
 
+## UC3- Realizar Venda
 | **Código do Caso de Uso**      | UC3 - Realizar Venda |
 |---------------------------------|----------------------|
-| **Ator Principal**              | Atendente            |
-| **Resumo**                      | Permite que o atendente registre uma venda de produtos para um cliente. |
-| **Pré-condições**               | O cliente deve estar cadastrado no sistema e o atendente autenticado. |
-| **Pós-condições**               | A venda é registrada e o histórico de compras do cliente é atualizado. |
+| *Ator Principal*              | Atendente            |
+| *Resumo*                      | Permite que o atendente registre uma venda de produtos para um cliente. |
+| *Pré-condições*               | O cliente deve estar cadastrado no sistema e o atendente autenticado. |
+| *Pós-condições*              | A venda é registrada e o histórico de compras do cliente é atualizado. |
+
+## Fluxo Principal
+| **Atendente** | **Sistema** |
+|---------------|-------------|
+| 1. O atendente seleciona o cliente (cadastrado ou novo). ||
+|| 2. Adiciona os produtos ao carrinho de compras. |
+| 3. O atendente seleciona os produtos e suas quantidades. ||
+|| 4. Calcula o total da venda. |
+
+## Fluxo Alternativo
+| **Atendente** | **Sistema** |
+|---------------|-------------|
+|1a. O atendente tenta registrar uma venda sem cliente selecionado. ||
+|| 2a. O sistema exibe um alerta solicitando a seleção de um cliente. |
+| 1b. O atendente seleciona um produto sem estoque suficiente. ||
+|| 2b. O sistema exibe uma mensagem de erro e impede a adição ao carrinho. |
 
 ---
 
+## UC4- Calcular Desconto
 | **Código do Caso de Uso**      | UC4 - Calcular Descontos |
 |---------------------------------|-------------------------|
-| **Ator Principal**              | Atendente               |
-| **Resumo**                      | Permite que o sistema calcule e aplique descontos durante a venda. |
-| **Pré-condições**               | A venda deve estar registrada, com produtos selecionados. |
-| **Pós-condições**               | O valor total da venda é atualizado com o desconto aplicado. |
+| *Ator Principal**             | Atendente               |
+| *Resumo**                      | Permite que o sistema calcule e aplique descontos durante a venda. |
+| *Pré-condições*               | A venda deve estar registrada, com produtos selecionados. |
+| *Pós-condições*               | O valor total da venda é atualizado com o desconto aplicado. |
+
+## Fluxo Principal
+| **Atendente** | **Sistema** |
+|---------------|-------------|
+| 1. O atendente verifica se existem descontos aplicáveis. | |
+|| 2. Verifica se há descontos aplicáveis (promoções, quantidade, validade próxima). |
+| | 3. Calcula o valor do desconto. |
+| | 4. Aplica o desconto ao total da venda. |
+
+## Fluxo Alternativo
+| **Atendente** | **Sistema** |
+|---------------|-------------|
+| 1a. Não há descontos aplicáveis. ||
+|| 2a. O sistema mantém o valor total da compra sem alterações. |
 
 ---
 
+## UC5 - Registrar Pagamento
 | **Código do Caso de Uso**      | UC5 - Registrar Pagamento |
 |---------------------------------|--------------------------|
-| **Ator Principal**              | Atendente                |
-| **Resumo**                      | Permite que o atendente registre o pagamento da venda. |
-| **Pré-condições**               | A venda deve estar registrada e o total calculado. |
-| **Pós-condições**               | O pagamento é registrado e um recibo é gerado. |
+| *Ator Principal*              | Atendente                |
+| *Resumo*                     | Permite que o atendente registre o pagamento da venda. |
+| *Pré-condições*               | A venda deve estar registrada e o total calculado. |
+| *Pós-condições*               | O pagamento é registrado e um recibo é gerado. |
+
+## Fluxo Principal
+| **Atendente** | **Sistema** |
+|---------------|-------------|
+| 1. O atendente verifica se existem descontos aplicáveis. ||
+|| 2. Verifica se há descontos aplicáveis (promoções, quantidade, validade próxima). |
+| | 3. Calcula o valor do desconto. |
+| | 4. Aplica o desconto ao total da venda. |
+
+## Fluxo Alternativo
+| **Atendente** | **Sistema** |
+|---------------|-------------|
+|1a. O pagamento não é aprovado pelo sistema de pagamento. | |
+||2a. O sistema exibe uma mensagem de erro e solicita uma nova tentativa. |
 
 ---
 
+## UC6 – Atualizar Estoque
 | **Código do Caso de Uso**      | UC6 - Atualizar Estoque |
 |---------------------------------|-------------------------|
-| **Ator Principal**              | Atendente, Administrador |
-| **Resumo**                      | Permite que o sistema atualize o estoque com base nas vendas realizadas. |
-| **Pré-condições**               | A venda deve ser concluída e o pagamento registrado. |
-| **Pós-condições**               | O estoque é atualizado automaticamente com as quantidades vendidas. |
+| *Ator Principal*              | Atendente, Administrador |
+| *Resumo*                      | Permite que o sistema atualize o estoque com base nas vendas realizadas. |
+| *Pré-condições*               | A venda deve ser concluída e o pagamento registrado. |
+| *Pós-condições*               | O estoque é atualizado automaticamente com as quantidades vendidas. |
+
+## Fluxo Principal
+| **Atendente** | **Sistema** |
+|---------------|-------------|
+| 1. O atendente seleciona o método de pagamento (crédito, débito). ||
+|| 2. Processa o pagamento. |
+| 3. O atendente insere os dados do pagamento. ||
+||4. Gera um recibo de pagamento. |
+
+## Fluxo Alternativo
+| **Atendente** | **Sistema** |
+|---------------|-------------|
+|| 1a. O sistema não consegue atualizar o estoque devido a erro de conexão. |
+|| 2a. O sistema exibe um alerta informando falha na atualização. |
 
 ---
 
+## UC7 - Controle de Produtos Próximos da Validade
 | **Código do Caso de Uso**      | UC7 - Controle de Produtos Próximos da Validade |
-|---------------------------------|--------------------------------------------------|
-| **Ator Principal**              | Administrador                                     |
-| **Resumo**                      | Permite que o sistema verifique a validade dos produtos e gere alertas. |
-| **Pré-condições**               | O administrador deve estar autenticado no sistema. |
-| **Pós-condições**               | O sistema gera alertas para os produtos próximos da validade. |
+|--------------------------------|--------------------------------------------------|
+| *Ator Principal*               | Atendente                                    |
+| *Resumo*                     | Permite que o sistema verifique a validade dos produtos e gere alertas. |
+| *Pré-condições*              | O administrador deve estar autenticado no sistema. |
+| *Pós-condições*               | O sistema gera alertas para os produtos próximos da validade. |
+
+## Fluxo Principal
+| **Atendente** | **Sistema** |
+|---------------|-------------|
+| 1. O atendente seleciona o método de pagamento (crédito, débito). ||
+|| 2. Processa o pagamento. |
+| 3. O atendente insere os dados do pagamento. ||
+||4. Gera um recibo de pagamento. |
+
+## Fluxo Alternativo
+| **Atendente** | **Sistema** |
+|---------------|-------------|
+|| 1a. O sistema não consegue atualizar o estoque devido a erro de conexão. |
+|| 2a. O sistema exibe um alerta informando falha na atualização. |
 
 ---
 
+## UC8 - Histórico de Compras
 | **Código do Caso de Uso**      | UC8 - Histórico de Compras |
 |---------------------------------|---------------------------|
-| **Ator Principal**              | Atendente                 |
-| **Resumo**                      | Permite que o sistema gere o histórico de compras dos clientes. |
-| **Pré-condições**               | O cliente deve estar cadastrado no sistema e a venda registrada. |
-| **Pós-condições**               | O histórico de compras do cliente é atualizado automaticamente. |
+| *Ator Principal*              | Atendente                 |
+| *Resumo*                      | Permite que o sistema gere o histórico de compras dos clientes. |
+| *Pré-condições*               | O cliente deve estar cadastrado no sistema e a venda registrada. |
+| *Pós-condições*               | O histórico de compras do cliente é atualizado automaticamente. |
+
+## Fluxo Principal
+| **Atendente** | **Sistema** |
+|---------------|-------------|
+| 1. O atendente verifica a validade dos produtos. ||
+|| 2. Verifica periodicamente a validade dos produtos. |
+|| 3. Gera alertas para os produtos próximos da validade. |
+
+## Fluxo Alternativo
+| **Atendente** | **Sistema** |
+|---------------|-------------|
+| 1a. Não há produtos próximos do vencimento. ||
+|| 2a. O sistema não gera alertas. |
 
 ---
 
+## UC9 - Gerar Relatórios de Vendas
 | **Código do Caso de Uso**      | UC9 - Gerar Relatórios de Vendas |
 |---------------------------------|---------------------------------|
-| **Ator Principal**              | Administrador                 |
-| **Resumo**                      | Permite que o sistema gere relatórios de vendas. |
-| **Pré-condições**               | O administrador deve estar autenticado no sistema. |
-| **Pós-condições**               | O relatório de vendas é gerado e exibido para o administrador. |
+| *Ator Principal*              | Administrador                 |
+| *Resumo*                     | Permite que o sistema gere relatórios de vendas. |
+| *Pré-condições*               | O administrador deve estar autenticado no sistema. |
+| *Pós-condições*               | O relatório de vendas é gerado e exibido para o administrador. |
+
+## Fluxo Principal
+| **Administrador** | **Sistema** |
+|---------------|-------------|
+| 1. O administrador registra as compras realizadas no histórico do cliente. ||
+|| 2. Atualiza o histórico de compras do cliente. |
+
+## Fluxo Alternativo
+| **Atendente** | **Sistema** |
+|---------------|-------------|
+| 1a. O atendente tenta acessar o histórico de um cliente sem compras registradas. ||
+|| 2a. O sistema exibe uma mensagem informando que não há histórico disponível. |
 
 ---
 
+## UC10 - Controle de Acesso por Perfil de Usuário
 | **Código do Caso de Uso**      | UC10 - Controle de Acesso por Perfil de Usuário |
 |---------------------------------|-------------------------------------------------|
-| **Ator Principal**              | Administrador                                      |
-| **Resumo**                      | Permite que o administrador gerencie o acesso dos usuários ao sistema. |
-| **Pré-condições**               | O administrador deve estar autenticado no sistema. |
-| **Pós-condições**               | O sistema ajusta o acesso dos usuários conforme as permissões definidas. |
+| *Ator Principal*              | Administrador                                      |
+| *Resumo*                      | Permite que o administrador gerencie o acesso dos usuários ao sistema. |
+| *Pré-condições*             | O administrador deve estar autenticado no sistema. |
+| *Pós-condições*               | O sistema ajusta o acesso dos usuários conforme as permissões definidas. |
 
+## Fluxo Principal
+| **Administrador** | **Sistema** |
+|---------------|-------------|
+| 1. O administrador seleciona o período do relatório (diário, semanal, mensal). ||
+|| 2. Gera o relatório com informações sobre produtos mais vendidos e clientes mais frequentes. |
+|| 3. Exibe o relatório. |
 
-
-| **Ator** | **Sistema** |
-|----------|-------------|
-| 1. O atendente insere os dados do cliente (nome completo, CPF, CEP, telefone). ||                                
-|| 1. Valida os dados inseridos. |
-|| 2. Armazena os dados no banco de dados. |
-|| 3. Confirma o cadastro e exibe uma mensagem de sucesso. |
+## Fluxo Alternativo
+| **Administrador** | **Sistema** |
+|---------------|-------------|
+| 1a. O administrador seleciona um período sem vendas. ||
+|| 1a. O sistema exibe um relatório vazio e informa que não há dados disponíveis. |
 
 
 # Diagrama de Sequência
