@@ -92,22 +92,93 @@ O sistema permitirá o registro de medicamentos, clientes e vendas, atualizando 
 
 # Descrição dos Casos de Uso
 
-| **Código / Nome do Caso de Uso** | **Ator Principal** | **Resumo** |
-|----------------------------------|--------------------|------------|
-| **UC1 - Cadastrar Cliente**      | Atendente          | Permite que o atendente registre novos clientes no sistema. |
-| **UC2 - Cadastrar Produto**      | Administrador      | Permite que o administrador registre novos produtos (medicamentos) no sistema. |
-| **UC3 - Realizar Venda**         | Atendente          | Permite que o atendente registre uma venda de produtos para um cliente. |
-| **UC4 - Calcular Descontos**     | Atendente          | Permite que o sistema calcule e aplique descontos durante a venda. |
-| **UC5 - Registrar Pagamento**    | Atendente          | Permite que o atendente registre o pagamento da venda. |
-| **UC6 - Atualizar Estoque**      | Atendente, Administrador | Permite que o sistema atualize o estoque com base nas vendas realizadas. |
-| **UC7 - Controle de Produtos Próximos da Validade** | Administrador | Permite que o sistema verifique a validade dos produtos e gere alertas. |
-| **UC8 - Histórico de Compras**   | Atendente          | Permite que o sistema gere o histórico de compras dos clientes. |
-| **UC9 - Gerar Relatórios de Vendas** | Administrador   | Permite que o sistema gere relatórios de vendas. |
-| **UC10 - Controle de Acesso por Perfil de Usuário** | Administrador | Permite que o administrador gerencie o acesso dos usuários ao sistema. |
+| **Código do Caso de Uso**      | UC1 - Cadastrar Cliente |
+|---------------------------------|-------------------------|
+| **Ator Principal**              | Atendente               |
+| **Resumo**                      | Permite que o atendente registre novos clientes no sistema. |
+| **Pré-condições**               | O atendente deve estar autenticado no sistema. |
+| **Pós-condições**               | O cliente é cadastrado e os dados são armazenados no banco de dados. |
 
+---
 
+| **Código do Caso de Uso**      | UC2 - Cadastrar Produto |
+|---------------------------------|-------------------------|
+| **Ator Principal**              | Administrador           |
+| **Resumo**                      | Permite que o administrador registre novos produtos (medicamentos) no sistema. |
+| **Pré-condições**               | O administrador deve estar autenticado no sistema. |
+| **Pós-condições**               | O produto é cadastrado e os dados são armazenados no banco de dados. |
 
+---
 
+| **Código do Caso de Uso**      | UC3 - Realizar Venda |
+|---------------------------------|----------------------|
+| **Ator Principal**              | Atendente            |
+| **Resumo**                      | Permite que o atendente registre uma venda de produtos para um cliente. |
+| **Pré-condições**               | O cliente deve estar cadastrado no sistema e o atendente autenticado. |
+| **Pós-condições**               | A venda é registrada e o histórico de compras do cliente é atualizado. |
+
+---
+
+| **Código do Caso de Uso**      | UC4 - Calcular Descontos |
+|---------------------------------|-------------------------|
+| **Ator Principal**              | Atendente               |
+| **Resumo**                      | Permite que o sistema calcule e aplique descontos durante a venda. |
+| **Pré-condições**               | A venda deve estar registrada, com produtos selecionados. |
+| **Pós-condições**               | O valor total da venda é atualizado com o desconto aplicado. |
+
+---
+
+| **Código do Caso de Uso**      | UC5 - Registrar Pagamento |
+|---------------------------------|--------------------------|
+| **Ator Principal**              | Atendente                |
+| **Resumo**                      | Permite que o atendente registre o pagamento da venda. |
+| **Pré-condições**               | A venda deve estar registrada e o total calculado. |
+| **Pós-condições**               | O pagamento é registrado e um recibo é gerado. |
+
+---
+
+| **Código do Caso de Uso**      | UC6 - Atualizar Estoque |
+|---------------------------------|-------------------------|
+| **Ator Principal**              | Atendente, Administrador |
+| **Resumo**                      | Permite que o sistema atualize o estoque com base nas vendas realizadas. |
+| **Pré-condições**               | A venda deve ser concluída e o pagamento registrado. |
+| **Pós-condições**               | O estoque é atualizado automaticamente com as quantidades vendidas. |
+
+---
+
+| **Código do Caso de Uso**      | UC7 - Controle de Produtos Próximos da Validade |
+|---------------------------------|--------------------------------------------------|
+| **Ator Principal**              | Administrador                                     |
+| **Resumo**                      | Permite que o sistema verifique a validade dos produtos e gere alertas. |
+| **Pré-condições**               | O administrador deve estar autenticado no sistema. |
+| **Pós-condições**               | O sistema gera alertas para os produtos próximos da validade. |
+
+---
+
+| **Código do Caso de Uso**      | UC8 - Histórico de Compras |
+|---------------------------------|---------------------------|
+| **Ator Principal**              | Atendente                 |
+| **Resumo**                      | Permite que o sistema gere o histórico de compras dos clientes. |
+| **Pré-condições**               | O cliente deve estar cadastrado no sistema e a venda registrada. |
+| **Pós-condições**               | O histórico de compras do cliente é atualizado automaticamente. |
+
+---
+
+| **Código do Caso de Uso**      | UC9 - Gerar Relatórios de Vendas |
+|---------------------------------|---------------------------------|
+| **Ator Principal**              | Administrador                 |
+| **Resumo**                      | Permite que o sistema gere relatórios de vendas. |
+| **Pré-condições**               | O administrador deve estar autenticado no sistema. |
+| **Pós-condições**               | O relatório de vendas é gerado e exibido para o administrador. |
+
+---
+
+| **Código do Caso de Uso**      | UC10 - Controle de Acesso por Perfil de Usuário |
+|---------------------------------|-------------------------------------------------|
+| **Ator Principal**              | Administrador                                      |
+| **Resumo**                      | Permite que o administrador gerencie o acesso dos usuários ao sistema. |
+| **Pré-condições**               | O administrador deve estar autenticado no sistema. |
+| **Pós-condições**               | O sistema ajusta o acesso dos usuários conforme as permissões definidas. |
 
 
 
