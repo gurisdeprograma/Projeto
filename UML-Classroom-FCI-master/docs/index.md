@@ -182,6 +182,12 @@ O sistema permitirá o registro de medicamentos, clientes e vendas, atualizando 
 
 
 
+| **Ator** | **Sistema** |
+|----------|-------------|
+| 1. O atendente insere os dados do cliente (nome completo, CPF, CEP, telefone). ||                                
+|| 1. Valida os dados inseridos. |
+|| 2. Armazena os dados no banco de dados. |
+|| 3. Confirma o cadastro e exibe uma mensagem de sucesso. |
 
 
 
