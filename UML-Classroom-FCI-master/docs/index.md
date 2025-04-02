@@ -126,7 +126,7 @@ O sistema permitirá o registro de medicamentos, clientes e vendas, atualizando 
 | *Pós-condições*               | O produto é cadastrado e os dados são armazenados no banco de dados. |
 
 ## Fluxo Principal
-| **Atendente** | **Sistema** |
+| **Administrador** | **Sistema** |
 |---------------|-------------|
 | 1. O administrador insere os dados do produto (nome, lote, data de validade, quantidade em estoque, fabricante, preço de venda).||
 || 2. Valida os dados inseridos. |
@@ -167,7 +167,7 @@ O sistema permitirá o registro de medicamentos, clientes e vendas, atualizando 
 
 ---
 
-## UC4- Calcular Desconto
+## UC4- Calcular Descontos
 | **Código do Caso de Uso**      | UC4 - Calcular Descontos |
 |---------------------------------|-------------------------|
 | *Ator Principal**             | Atendente               |
