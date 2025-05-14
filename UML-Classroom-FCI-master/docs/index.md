@@ -363,6 +363,9 @@ O sistema permitirá o registro de medicamentos, clientes e vendas, atualizando 
 
 # Diagrama de Classes
 
+## 📦 Diagrama de Classes - Sistema de Gestão da Farmácia Vida Saudável
+
+```plaintext
 +---------------------+
 |       Cliente       |
 +---------------------+
@@ -404,7 +407,7 @@ O sistema permitirá o registro de medicamentos, clientes e vendas, atualizando 
 +---------------------+
 
 +---------------------+
-|       Item          |
+|        Item         |
 +---------------------+
 | - quantidade: int   |
 | - precoUnit: float  |
@@ -433,6 +436,7 @@ O sistema permitirá o registro de medicamentos, clientes e vendas, atualizando 
 +---------------------+
 | +autenticar()       |
 +---------------------+
+
 
 
 # Diagrama de Estados
