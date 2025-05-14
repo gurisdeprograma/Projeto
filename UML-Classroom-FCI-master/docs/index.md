@@ -359,7 +359,7 @@ O sistema permitirá o registro de medicamentos, clientes e vendas, atualizando 
 
 # Diagrama de Sequência
 
-*&lt;Diagrama de ordem e interação dos objetos&gt;*
+<img src="diag_sequencia.png">
 
 # Diagrama de Classes
 
