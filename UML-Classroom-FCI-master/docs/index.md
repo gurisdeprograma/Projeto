@@ -363,7 +363,77 @@ O sistema permitirá o registro de medicamentos, clientes e vendas, atualizando 
 
 # Diagrama de Classes
 
-*&lt;Diagrama de relacionamento entre classes para os seus atributos e operações&gt;*
++---------------------+
+|       Cliente       |
++---------------------+
+| - id: int           |
+| - nome: string      |
+| - cpf: string       |
+| - cep: string       |
+| - telefone: string  |
++---------------------+
+| +getHistorico()     |
++---------------------+
+
++---------------------+
+|      Produto        |
++---------------------+
+| - id: int           |
+| - nome: string      |
+| - lote: string      |
+| - validade: Date    |
+| - estoque: int      |
+| - fabricante: string|
+| - preco: float      |
++---------------------+
+| +estaProximoVal()   |
++---------------------+
+
++---------------------+
+|       Venda         |
++---------------------+
+| - id: int           |
+| - data: Date        |
+| - total: float      |
++---------------------+
+| +calcularTotal()    |
+| +aplicarDesconto()  |
++---------------------+
+| *cliente: Cliente   |
+| *itens: List<Item>  |
++---------------------+
+
++---------------------+
+|       Item          |
++---------------------+
+| - quantidade: int   |
+| - precoUnit: float  |
++---------------------+
+| *produto: Produto   |
++---------------------+
+
++---------------------+
+|     Pagamento       |
++---------------------+
+| - id: int           |
+| - tipo: string      |
+| - valor: float      |
++---------------------+
+| *venda: Venda       |
++---------------------+
+
++---------------------+
+|      Usuario        |
++---------------------+
+| - id: int           |
+| - nome: string      |
+| - login: string     |
+| - senha: string     |
+| - perfil: string    | <<enum>> // Atendente, Administrador
++---------------------+
+| +autenticar()       |
++---------------------+
+
 
 # Diagrama de Estados
 
