@@ -363,79 +363,79 @@ O sistema permitirá o registro de medicamentos, clientes e vendas, atualizando 
 
 # Diagrama de Classes
 
-## 📦 Diagrama de Classes - Sistema de Gestão da Farmácia Vida Saudável
+@startuml
+skinparam classAttributeIconSize 0
 
-```plaintext
-+---------------------+
-|       Cliente       |
-+---------------------+
-| - id: int           |
-| - nome: string      |
-| - cpf: string       |
-| - cep: string       |
-| - telefone: string  |
-+---------------------+
-| +getHistorico()     |
-+---------------------+
+' Superclasse
+class Usuario {
+  - id: int
+  - nome: String
+  - login: String
+  - senha: String
+  - perfil: String
+  + autenticar(): boolean
+}
 
-+---------------------+
-|      Produto        |
-+---------------------+
-| - id: int           |
-| - nome: string      |
-| - lote: string      |
-| - validade: Date    |
-| - estoque: int      |
-| - fabricante: string|
-| - preco: float      |
-+---------------------+
-| +estaProximoVal()   |
-+---------------------+
+' Subclasses
+class Cliente {
+  - cpf: String
+  - cep: String
+  - telefone: String
+  + getHistoricoCompras(): List<Venda>
+}
 
-+---------------------+
-|       Venda         |
-+---------------------+
-| - id: int           |
-| - data: Date        |
-| - total: float      |
-+---------------------+
-| +calcularTotal()    |
-| +aplicarDesconto()  |
-+---------------------+
-| *cliente: Cliente   |
-| *itens: List<Item>  |
-+---------------------+
+class Administrador {
+  + gerarRelatorios(): void
+  + verificarValidadeProdutos(): void
+}
 
-+---------------------+
-|        Item         |
-+---------------------+
-| - quantidade: int   |
-| - precoUnit: float  |
-+---------------------+
-| *produto: Produto   |
-+---------------------+
+Usuario <|-- Cliente
+Usuario <|-- Administrador
 
-+---------------------+
-|     Pagamento       |
-+---------------------+
-| - id: int           |
-| - tipo: string      |
-| - valor: float      |
-+---------------------+
-| *venda: Venda       |
-+---------------------+
+' Produto
+class Produto {
+  - id: int
+  - nome: String
+  - lote: String
+  - validade: Date
+  - quantidadeEstoque: int
+  - fabricante: String
+  - preco: float
+  + estaProximoDaValidade(): boolean
+}
 
-+---------------------+
-|      Usuario        |
-+---------------------+
-| - id: int           |
-| - nome: string      |
-| - login: string     |
-| - senha: string     |
-| - perfil: string    | <<enum>> // Atendente, Administrador
-+---------------------+
-| +autenticar()       |
-+---------------------+
+' Venda
+class Venda {
+  - id: int
+  - data: Date
+  - total: float
+  + calcularTotal(): float
+  + aplicarDesconto(): float
+}
+
+' ItemVenda
+class ItemVenda {
+  - quantidade: int
+  - precoUnitario: float
+  + calcularSubtotal(): float
+}
+
+' Pagamento
+class Pagamento {
+  - id: int
+  - tipo: String
+  - valor: float
+  + gerarRecibo(): void
+}
+
+' Relacionamentos
+Cliente --> Venda : realiza
+Venda --> ItemVenda : contém
+ItemVenda --> Produto : referencia
+Venda --> Pagamento : registra
+
+@enduml
+
 
 
 
