@@ -363,7 +363,7 @@ O sistema permitirá o registro de medicamentos, clientes e vendas, atualizando 
 
 # Diagrama de Classes
 
-![image](https://github.com/user-attachments/assets/61b7348c-5525-486b-9eb9-43dc75cf5e33)
+<img src="diagramaclasse.png">
 
 
 
