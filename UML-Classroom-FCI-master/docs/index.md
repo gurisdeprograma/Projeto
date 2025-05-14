@@ -363,78 +363,8 @@ O sistema permitirá o registro de medicamentos, clientes e vendas, atualizando 
 
 # Diagrama de Classes
 
-@startuml
-skinparam classAttributeIconSize 0
+![image](https://github.com/user-attachments/assets/61b7348c-5525-486b-9eb9-43dc75cf5e33)
 
-' Superclasse
-class Usuario {
-  - id: int
-  - nome: String
-  - login: String
-  - senha: String
-  - perfil: String
-  + autenticar(): boolean
-}
-
-' Subclasses
-class Cliente {
-  - cpf: String
-  - cep: String
-  - telefone: String
-  + getHistoricoCompras(): List<Venda>
-}
-
-class Administrador {
-  + gerarRelatorios(): void
-  + verificarValidadeProdutos(): void
-}
-
-Usuario <|-- Cliente
-Usuario <|-- Administrador
-
-' Produto
-class Produto {
-  - id: int
-  - nome: String
-  - lote: String
-  - validade: Date
-  - quantidadeEstoque: int
-  - fabricante: String
-  - preco: float
-  + estaProximoDaValidade(): boolean
-}
-
-' Venda
-class Venda {
-  - id: int
-  - data: Date
-  - total: float
-  + calcularTotal(): float
-  + aplicarDesconto(): float
-}
-
-' ItemVenda
-class ItemVenda {
-  - quantidade: int
-  - precoUnitario: float
-  + calcularSubtotal(): float
-}
-
-' Pagamento
-class Pagamento {
-  - id: int
-  - tipo: String
-  - valor: float
-  + gerarRecibo(): void
-}
-
-' Relacionamentos
-Cliente --> Venda : realiza
-Venda --> ItemVenda : contém
-ItemVenda --> Produto : referencia
-Venda --> Pagamento : registra
-
-@enduml
 
 
 
