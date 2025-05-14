@@ -364,10 +364,98 @@ O sistema permitirá o registro de medicamentos, clientes e vendas, atualizando 
 # Diagrama de Classes
 
 <img src="diagramaclasse.png">
+'''
+@startuml
+skinparam classAttributeIconSize 0
+skinparam backgroundColor #FFFFFF
+skinparam classFontColor Black
+skinparam classAttributeFontColor Black
+skinparam classOperationFontColor Black
 
+' --- CLASSES PRINCIPAIS ---
+class Usuario {
+  -id: int
+  #nome: String
+  -login: String
+  -senha: String
+  -perfil: String <<enum>> "ADMINISTRADOR | ATENDENTE"
+  +autenticar(): boolean
+}
 
+class Administrador {
+  +gerarRelatorios(periodo: String): void
+  +verificarValidadeProdutos(): List<Produto>
+  +cadastrarUsuario(novoUsuario: Usuario): void
+}
 
+class Atendente {
+  +realizarVenda(cliente: Cliente, produtos: List<Produto>): Venda
+}
 
+Usuario <|-- Administrador
+Usuario <|-- Atendente
+
+class Cliente {
+  -cpf: String
+  -nome: String
+  -cep: String
+  -telefone: String
+  +getHistoricoCompras(): List<Venda>
+}
+
+class Produto {
+  -id: int
+  -nome: String
+  -lote: String
+  -validade: Date
+  -quantidadeEstoque: int
+  -fabricante: String
+  -preco: float
+  +estaProximoDaValidade(): boolean
+}
+
+class Venda {
+  -id: int
+  -data: Date
+  -total: float
+  -desconto: float
+  +calcularTotal(): float
+  +aplicarDesconto(regra: String): float
+  +atualizarEstoque(): void
+}
+
+class ItemVenda {
+  -quantidade: int
+  -precoUnitario: float
+  +calcularSubtotal(): float
+}
+
+class Pagamento {
+  -id: int
+  -tipo: String <<enum>> "CRÉDITO | DÉBITO"
+  -valor: float
+  -status: String <<enum>> "PENDENTE | CONCLUÍDO"
+  +gerarRecibo(): String
+}
+
+class Relatorio {
+  -periodo: String
+  -dados: List<Venda>
+  +gerarRelatorioVendas(): void
+  +filtrarPorPeriodo(inicio: Date, fim: Date): List<Venda>
+}
+
+' --- RELACIONAMENTOS ---
+Cliente "1" --> "0..*" Venda : realiza
+Venda "1" --> "1..*" ItemVenda : contém
+ItemVenda "1" --> "1" Produto : referencia
+Venda "1" --> "1" Pagamento : registra
+Administrador --> Relatorio : gera
+Produto "1" --> "0..*" ItemVenda : vendido em
+Atendente --> Venda : registra
+
+@enduml
+'''
 
 # Diagrama de Estados
 
