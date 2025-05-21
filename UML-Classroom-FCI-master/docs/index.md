@@ -372,7 +372,7 @@ O sistema permitirá o registro de medicamentos, clientes e vendas, atualizando 
 
 # Diagrama de Implantação
 
-*&lt;Diagrama para exibir o relacionamento de hardware e software no projeto&gt;*
+<img src="diagramaimplantacao.png">
 
 # Referências
 
