@@ -368,7 +368,7 @@ O sistema permitirá o registro de medicamentos, clientes e vendas, atualizando 
 
 # Diagrama de Estados
 
-*&lt;Diagrama para permite modelar o comportamento interno de um determinado objeto, subsistema ou sistema global&gt;*
+<img src="diagramaestadofarmacia.png">
 
 # Diagrama de Implantação
 
